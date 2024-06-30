@@ -1,0 +1,54 @@
+<!-- views/form.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Project Form</title>
+    <!-- Include Bootstrap CSS (you can customize this) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Backend Project Form</h2>
+        <form method="POST" action="/submit">
+            <div class="form-group">
+                <label for="city">City:</label>
+                <input type="text" class="form-control" id="city" name="city" placeholder="Enter city name">
+                <!-- You can optionally provide a dropdown or autocomplete for cities -->
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="number" class="form-control" id="year" name="year" placeholder="Enter year">
+            </div>
+            <div class="form-group">
+                <label for="sector">Sector:</label>
+                <select class="form-control" id="sector" name="sector">
+                    <option value="Residential buildings">Residential buildings</option>
+                    <option value="Institutional buildings & facilities">Institutional buildings & facilities</option>
+                    <option value="Commercial buildings & facilities">Commercial buildings & facilities</option>
+                    <option value="Industrial buildings & facilities">Industrial buildings & facilities</option>
+                    <option value="Agriculture">Agriculture</option>
+                    <option value="Fugitive emissions">Fugitive emissions</option>
+                    <option value="On-road">On-road</option>
+                    <option value="On-road">Waste</option>
+                    <!-- Add more sectors and subsectors as needed -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="scope">Scope:</label>
+                <select class="form-control" id="scope" name="scope">
+                    <option value="direct">Direct emissions</option>
+                    <option value="indirect">Indirect emissions</option>
+                    <option value="total">Total emissions</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS (optional, if you use Bootstrap features) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

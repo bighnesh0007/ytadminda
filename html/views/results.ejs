@@ -1,0 +1,47 @@
+<!-- views/results-tailwind-centered.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Results</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div class="container mx-auto">
+        <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="p-6">
+                <h2 class="text-2xl font-bold mb-4">API Results for <%= data.city_name %>, <%= data.country_name %></h2>
+                <p><strong>Year:</strong> <%= data.year %></p>
+                <p><strong>Scope:</strong> <%= data.scope %></p>
+            </div>
+
+            <!-- Grid layout for emissions data -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 px-6 pb-6">
+                <% data.data.forEach(sector => { %>
+                    <div class="p-4 border rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-2"><%= sector.sector %></h3>
+                        <ul>
+                            <% sector.emissions.forEach(subsector => { %>
+                                <li><%= subsector.subsector %>: <%= subsector.co2e_total_ton %> tons</li>
+                            <% }); %>
+                        </ul>
+                        <div class="mt-2 text-gray-700">
+                            Total CO2 Emissions: <%= sector.total.co2e_total_ton %> tons
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+
+            <!-- Back to Home Link -->
+            <div class="flex justify-center mt-4">
+                <a href="/" class="text-blue-500 hover:text-blue-700">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tailwind CSS does not require JS -->
+</body>
+</html>
